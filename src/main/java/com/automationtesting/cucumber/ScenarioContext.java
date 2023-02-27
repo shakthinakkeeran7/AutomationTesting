@@ -9,6 +9,7 @@ public class ScenarioContext {
     private  Map<String, Object> scenarioContext;
 
     public ScenarioContext(){
+    
         scenarioContext = new HashMap<String, Object>();
     }
 

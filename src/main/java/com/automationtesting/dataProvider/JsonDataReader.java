@@ -15,6 +15,7 @@ import java.util.function.Predicate;
 
 public class JsonDataReader {
 
+	
     private final String customerFilePath =
             FileReaderManager.getInstance().getConfigReader().getTestDataResourcePath() + "Customer.json";
     private List<Customer> customerList;
@@ -22,6 +23,7 @@ public class JsonDataReader {
     public JsonDataReader(){
         customerList = getCustomerData();
     }
+
 
     private List<Customer> getCustomerData() {
         Gson gson = new Gson();

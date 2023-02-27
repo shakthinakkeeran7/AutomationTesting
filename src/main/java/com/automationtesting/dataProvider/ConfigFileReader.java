@@ -62,11 +62,11 @@ public class ConfigFileReader {
 
     public DriverType getBrowser() {
         String browserName = properties.getProperty("browser");
-        if(browserName == null || browserName.equals("firefox"))
+        if(browserName == null || browserName.equalsIgnoreCase("firefox"))
             return DriverType.FIREFOX;
         else if(browserName.equalsIgnoreCase("chrome"))
             return DriverType.CHROME;
-        else if(browserName.equals("iexplorer"))
+        else if(browserName.equalsIgnoreCase("iexplorer"))
             return DriverType.INTERNETEXPLORER;
         else
             throw new RuntimeException("Browser Name Key value in Configuration.properties is not matched : " + browserName);
@@ -76,7 +76,7 @@ public class ConfigFileReader {
         String environmentName = properties.getProperty("environment");
         if(environmentName == null || environmentName.equalsIgnoreCase("local"))
             return EnvironmentType.LOCAL;
-        else if(environmentName.equals("remote"))
+        else if(environmentName.equalsIgnoreCase("remote"))
             return EnvironmentType.REMOTE;
         else
             throw new RuntimeException("Environment Type Key value in Configuration.properties is not matched : " + environmentName);
