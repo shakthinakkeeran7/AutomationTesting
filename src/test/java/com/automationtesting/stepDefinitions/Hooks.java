@@ -1,8 +1,16 @@
-package stepDefinitions;
+package com.automationtesting.stepDefinitions;
 
-import cucumber.TestContext;
-import cucumber.api.java.After;
-import cucumber.api.java.Before;
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.runner.RunWith;
+
+import com.automationtesting.cucumber.TestContext;
+import com.automationtesting.managers.WebDriverManager;
+
+
+
 
 public class Hooks {
 
@@ -12,20 +20,13 @@ public class Hooks {
         testContext = context;
     }
 
-    @Before
+@Before
     public void BeforeSteps() {
         System.out.println("$$$ BEFORE $$$");
-		/*What all you can perform here
-			Starting a webdriver
-			Setting up DB connections
-			Setting up test data
-			Setting up browser cookies
-			Navigating to certain page
-			or anything before the test
-		*/
+		
     }
 
-    @After
+   @After
     public void AfterSteps() {
         System.out.println("$$$ AFTER $$$");
         testContext.getWebDriverManager().closeDriver();

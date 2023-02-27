@@ -1,13 +1,15 @@
-package dataProvider;
+package com.automationtesting.dataProvider;
 
-import enums.DriverType;
-import enums.EnvironmentType;
+
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
+
+import com.automationtesting.enums.DriverType;
+import com.automationtesting.enums.EnvironmentType;
 
 public class ConfigFileReader {
 

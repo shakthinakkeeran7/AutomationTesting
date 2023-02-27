@@ -1,8 +1,9 @@
-package dataProvider;
+package com.automationtesting.dataProvider;
 
+import com.automationtesting.managers.FileReaderManager;
+import com.automationtesting.testDataTypes.Customer;
 import com.google.gson.Gson;
-import managers.FileReaderManager;
-import testDataTypes.Customer;
+
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -10,6 +11,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Predicate;
 
 public class JsonDataReader {
 
@@ -38,8 +40,12 @@ public class JsonDataReader {
         }
     }
 
-    public final Customer getCustomerByName(String customerName){
-        return customerList.stream().filter(x -> x.firstName.equalsIgnoreCase(customerName)).findAny().get();
+    public final Customer getCustomerByName(final String customerName){
+        return customerList.stream().filter(new Predicate<Customer>() {
+			public boolean test(Customer x) {
+				return x.firstName.equalsIgnoreCase(customerName);
+			}
+		}).findAny().get();
     }
 
 

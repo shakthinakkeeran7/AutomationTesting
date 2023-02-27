@@ -1,13 +1,16 @@
-package managers;
+package com.automationtesting.managers;
 
-import enums.DriverType;
-import enums.EnvironmentType;
+import com.automationtesting.enums.DriverType;
+import com.automationtesting.enums.EnvironmentType;
+
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 
-import java.util.concurrent.TimeUnit;
+
 
 
 public class WebDriverManager {

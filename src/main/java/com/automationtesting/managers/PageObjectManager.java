@@ -1,16 +1,21 @@
-package managers;
+package com.automationtesting.managers;
 
 import org.openqa.selenium.WebDriver;
-import pageObjects.*;
+
+import com.automationtesting.pageObjects.HomePage;
+import com.automationtesting.pageObjects.Login;
+import com.automationtesting.pageObjects.MyAccount;
+import com.automationtesting.pageObjects.Registration;
+import com.automationtesting.pageObjects.Shop;
 
 public class PageObjectManager {
 
     private WebDriver driver;
-    private ProductListingPage productListingPage;
-    private CartPage cartPage;
     private HomePage homePage;
-    private CheckoutPage checkoutPage;
-    private ConfirmationPage confirmationPage;
+    private Login login;
+    private MyAccount account;
+    private Registration register;
+    private Shop shop;
 
 
     public PageObjectManager(WebDriver driver) {
@@ -21,19 +26,19 @@ public class PageObjectManager {
         return (homePage == null) ? homePage = new HomePage(driver) : homePage;
     }
 
-    public ProductListingPage getProductListingPage() {
-        return (productListingPage == null) ? productListingPage = new ProductListingPage(driver) : productListingPage;
+    public Login getLogin() {
+        return (login == null) ? login = new Login(driver) : login;
     }
 
-    public CartPage getCartPage() {
-        return (cartPage == null) ? cartPage = new CartPage(driver) : cartPage;
+    public MyAccount getMyAccount() {
+        return (account == null) ? account = new MyAccount(driver) : account;
     }
 
-    public CheckoutPage getCheckoutPage() {
-        return (checkoutPage == null) ? checkoutPage = new CheckoutPage(driver) : checkoutPage;
+    public Registration getRegistration() {
+        return (register == null) ? register = new Registration(driver) : register;
     }
 
-    public ConfirmationPage getConfirmationPage() {
-        return (confirmationPage == null) ? confirmationPage = new ConfirmationPage(driver) : confirmationPage;
+    public Shop getShop() {
+        return (shop == null) ? shop = new Shop(driver) : shop;
     }
 }

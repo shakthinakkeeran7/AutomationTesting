@@ -1,7 +1,7 @@
-package managers;
+package com.automationtesting.managers;
 
-import dataProvider.ConfigFileReader;
-import dataProvider.JsonDataReader;
+import com.automationtesting.dataProvider.*;
+
 
 public class FileReaderManager {
 
