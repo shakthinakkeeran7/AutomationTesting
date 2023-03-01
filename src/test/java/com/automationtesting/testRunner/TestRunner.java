@@ -1,24 +1,36 @@
 package com.automationtesting.testRunner;
 
+import java.io.File;
+
+import org.junit.AfterClass;
 import org.junit.runner.RunWith;
+
+import com.automationtesting.managers.FileReaderManager;
+
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 
+
 @RunWith(Cucumber.class)
-@CucumberOptions(features = "target/Resource/FeatureFiles", glue = "com.automationtesting.stepDefinitions", dryRun = true,
-// plugin = { "pretty" },
+@CucumberOptions(features = "src\\test\\resources\\functionalTests", glue = "com.automationtesting.stepDefinitions", dryRun = false,
+
 // plugin = { "usage" },
-// plugin = { "pretty", "html:target/cucumber-reports" },
-//        plugin = { "pretty", "json:target/cucumber-reports/Cucumber.json",
-//                "junit:target/cucumber-reports/Cucumber.xml",
-//                "html:target/cucumber-reports"
-//        },
-		monochrome = true
+//
+//plugin = {"com.cucumber.listener.ExtentCucumberFormatter:cucumber-reports/report.html"},
+//"junit:target/cucumber-reports/Cucumber.xml",
+//plugin = { "pretty", "json:target/cucumber-reports/Cucumber.json"},
+plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:cucumber-reports/report.html"},
 
+monochrome = true
 )
-
-public class TestRunner {
+class TestRunner {
+	@AfterClass
 	
+	
+	public static void writeExtentReport() {
+		//System.out.println(FileReaderManager.getInstance().getConfigReader().getReportConfigPath());
+		Reporter.loadXMLConfig(new File(FileReaderManager.getInstance().getConfigReader().getReportConfigPath()));
+	}
 
 }

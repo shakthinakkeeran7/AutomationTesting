@@ -7,7 +7,6 @@ import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 
 import com.automationtesting.cucumber.TestContext;
-import com.automationtesting.managers.WebDriverManager;
 
 
 
@@ -29,7 +28,7 @@ public class Hooks {
    @After
     public void AfterSteps() {
         System.out.println("$$$ AFTER $$$");
-        testContext.getWebDriverManager().closeDriver();
+       // testContext.getWebDriverManager().quit();
     }
 
 }

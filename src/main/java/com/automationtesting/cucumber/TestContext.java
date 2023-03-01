@@ -4,13 +4,14 @@ import com.automationtesting.managers.*;
 import com.automationtesting.pageObjects.*;
 
 public class TestContext {
-	
     private WebDriverManager webDriverManager;
     private PageObjectManager pageObjectManager;
     private ScenarioContext scenarioContext;
+    private FileReaderManager fileReaderManager;
 
     public TestContext(){
         webDriverManager = new WebDriverManager();
+   
         pageObjectManager = new PageObjectManager(webDriverManager.getDriver());
         scenarioContext = new ScenarioContext();
     }
@@ -26,5 +27,5 @@ public class TestContext {
     public ScenarioContext getScenarioContext() {
         return scenarioContext;
     }
-
+    
 }
